@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'survey_component/survey_add_question.dart';
 
-class ShortQuestion extends StatefulWidget {
-  const ShortQuestion({super.key});
+class LongQuestion extends StatefulWidget {
+  const LongQuestion({super.key});
 
   @override
-  State<ShortQuestion> createState() => _ShortQuestionState();
+  State<LongQuestion> createState() => _LongQuestionState();
 }
 
-class _ShortQuestionState extends State<ShortQuestion> {
+class _LongQuestionState extends State<LongQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,8 +63,8 @@ class _ShortQuestionState extends State<ShortQuestion> {
               style: const TextStyle(fontSize: 18),
               decoration: const InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                hintText: '단답형 문항을 작성해주세요',
+                EdgeInsets.symmetric(vertical: 125, horizontal: 20),
+                hintText: '서술형 문항을 작성해주세요',
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   borderSide: BorderSide(
@@ -74,9 +74,8 @@ class _ShortQuestionState extends State<ShortQuestion> {
                 fillColor: Color.fromRGBO(240, 240, 240, 1),
               ),
             ),
-            Spacer(),
             Padding(
-              padding: const EdgeInsets.only(top: 160),
+              padding: const EdgeInsets.only(top: 2),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -95,6 +94,7 @@ class _ShortQuestionState extends State<ShortQuestion> {
                 ],
               ),
             ),
+            Spacer(),
             AddButtons(),
           ],
         ),

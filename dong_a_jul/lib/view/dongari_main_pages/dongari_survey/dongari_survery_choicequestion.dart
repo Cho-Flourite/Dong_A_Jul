@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'survey_component/survey_add_question.dart';
 
-class ShortQuestion extends StatefulWidget {
-  const ShortQuestion({super.key});
+class ChoiceQuestion extends StatefulWidget {
+  const ChoiceQuestion({super.key});
 
   @override
-  State<ShortQuestion> createState() => _ShortQuestionState();
+  State<ChoiceQuestion> createState() => _ChoiceQuestionState();
 }
 
-class _ShortQuestionState extends State<ShortQuestion> {
+class _ChoiceQuestionState extends State<ChoiceQuestion> {
   @override
   Widget build(BuildContext context) {
+    var selectedOption;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -59,24 +61,40 @@ class _ShortQuestionState extends State<ShortQuestion> {
                 ],
               ),
             ),
-            TextFormField(
-              style: const TextStyle(fontSize: 18),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                hintText: '단답형 문항을 작성해주세요',
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(
-                      width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
-                ),
-                filled: true,
-                fillColor: Color.fromRGBO(240, 240, 240, 1),
-              ),
+            RadioListTile(
+              title: Text('보기 1'),
+              value: 'Option A',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value;
+                });
+              },
             ),
-            Spacer(),
+            RadioListTile(
+              title: Text('보기 2'),
+              value: 'Option A',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value;
+                });
+              },
+            ),
+            OutlinedButton(
+              //todo 버튼 onPressed
+              onPressed: () {},
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                ),
+                minimumSize: MaterialStateProperty.all(Size(300, 45)), // 사이즈 조정
+              ),
+              child: const Text("보기 추가하기"),
+            ),
             Padding(
-              padding: const EdgeInsets.only(top: 160),
+              padding: const EdgeInsets.only(top: 2),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -95,6 +113,7 @@ class _ShortQuestionState extends State<ShortQuestion> {
                 ],
               ),
             ),
+            Spacer(),
             AddButtons(),
           ],
         ),

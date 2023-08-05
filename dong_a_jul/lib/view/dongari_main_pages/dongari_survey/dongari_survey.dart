@@ -1,6 +1,8 @@
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_survey/dongari_survey_shortquestion.dart';
 import 'package:flutter/material.dart';
 
+import 'survey_component/survey_add_question.dart';
+
 class DongariSurvey extends StatefulWidget {
   const DongariSurvey({super.key});
 
@@ -12,6 +14,21 @@ class _DongariSurveyState extends State<DongariSurvey> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
+        ),
+        title: Text(
+          '지원하기',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 70, left: 32, right: 32),
         child: Column(
@@ -50,82 +67,7 @@ class _DongariSurveyState extends State<DongariSurvey> {
               ),
             ),
             Spacer(),
-            Container(
-              margin: const EdgeInsets.only(
-                  left: 30, top: 100, right: 30, bottom: 15),
-              child: ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext) {
-                        return Container(
-                          height: 300, // 모달 높이 크기
-                          decoration: const BoxDecoration(
-                            color: Colors.white, // 모달 배경색
-                            borderRadius: BorderRadius.only(
-                              // todo: 라운딩처리
-                              topLeft: Radius.circular(20), // 모달 좌상단 라운딩 처리
-                              topRight: Radius.circular(20), // 모달 우상단 라운딩 처리
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              TextButton(
-                                //todo page이동
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const ShortQuestion()));
-                                },
-                                child: const Text(
-                                  '단답형 문항',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  '서술형 문항',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  '객관식 문항',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  '객관식 문항(중복)',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      });
-                },
-                child: const Text('문항 추가하기'),
-                style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.all(8.0),
-                    minimumSize: const Size(500, 45),
-                    backgroundColor: const Color.fromRGBO(255, 121, 34, 1)),
-              ),
-            ),
+            AddButtons(),
           ],
         ),
       ),
