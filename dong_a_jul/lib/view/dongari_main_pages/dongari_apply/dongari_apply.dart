@@ -1,16 +1,15 @@
-import 'package:dong_a_jul/view/dongari_main_pages/dongari_survey/dongari_survey_shortquestion.dart';
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_apply/apply_component/apply_next_button.dart';
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_apply/dongari_apply_privacy.dart';
 import 'package:flutter/material.dart';
 
-import 'survey_component/survey_add_question.dart';
-
-class DongariSurvey extends StatefulWidget {
-  const DongariSurvey({super.key});
+class DongariApply extends StatefulWidget {
+  const DongariApply({super.key});
 
   @override
-  State<DongariSurvey> createState() => _DongariSurveyState();
+  State<DongariApply> createState() => _DongariApplyState();
 }
 
-class _DongariSurveyState extends State<DongariSurvey> {
+class _DongariApplyState extends State<DongariApply> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +34,7 @@ class _DongariSurveyState extends State<DongariSurvey> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: const ListTile(
@@ -53,26 +53,29 @@ class _DongariSurveyState extends State<DongariSurvey> {
                 ),
               ),
             ),
+            //todo 텍스트 필드에서 받아온 data를 Text()에 뿌려주기
             Expanded(
               flex: 2,
-              child: TextFormField(
-                style: const TextStyle(fontSize: 18),
-                decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 150, horizontal: 20),
-                  hintText: '동아리 소개글을 입력해주세요',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
-                  ),
-                  filled: true,
-                  fillColor: Color.fromRGBO(240, 240, 240, 1),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                child: Text(
+                    "게임개발 연합동아리 GameMakers에 지원해주셔서 감사합니다!\n\n📌 활동기간을 지키실 분만 지원 가능합니다.\n📌 7월 8일(토) 14시~17시 오프라인 행사(팀 배정)에 참석하실 분만 지원 가능합니다."),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Color.fromRGBO(240, 240, 240, 1),
                 ),
               ),
             ),
             Spacer(),
-            AddButtons(),
+            NextButton(
+                buttonText: '시작하기',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              PersonalInformationAgreement()));
+                }),
           ],
         ),
       ),

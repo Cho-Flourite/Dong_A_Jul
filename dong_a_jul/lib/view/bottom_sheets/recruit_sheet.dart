@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:dong_a_jul/view/bottom_sheets/bottom_interest/bottom_sheet_interest.dart';
 import 'package:dong_a_jul/view/bottom_sheets/bottom_my/bottom_sheet_my.dart';
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_apply/dongari_apply.dart';
 import 'package:flutter/material.dart';
 
 class RecruitmentBottomsheet extends StatefulWidget {
@@ -61,7 +62,8 @@ class _RecruitmentBottomsheetState extends State<RecruitmentBottomsheet> {
                         }
 
                         /// 100으로 높이 설정
-                        else if (_boundary <= _height && _height <= _downThresh) {
+                        else if (_boundary <= _height &&
+                            _height <= _downThresh) {
                           _height = _lowLimit;
                           _longAnimation = true;
                           _blurValue = 0;
@@ -87,24 +89,35 @@ class _RecruitmentBottomsheetState extends State<RecruitmentBottomsheet> {
                     width: MediaQuery.of(context).size.width,
                     height: _height,
                     child: Scaffold(
-
                         body: CustomScrollView(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          slivers: [
-                            SliverAppBar(
-                              automaticallyImplyLeading: false,
-                              backgroundColor: Colors.orange[800],
-                              centerTitle: true,
-                              elevation: 0,
-                              title: Text('지원하기',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-
-                            ),
-                            SliverFillRemaining(
-
-                            )
-                          ],
-                        )),
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      slivers: [
+                        SliverAppBar(
+                          automaticallyImplyLeading: false,
+                          backgroundColor: Colors.orange[800],
+                          centerTitle: true,
+                          elevation: 0,
+                          title: TextButton(
+                              child: Text(
+                                '지원하기',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DongariApply(),
+                                  ),
+                                );
+                              }),
+                        ),
+                        SliverFillRemaining()
+                      ],
+                    )),
                   )),
             ),
           ),
