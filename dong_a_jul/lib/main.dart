@@ -3,18 +3,40 @@ import 'package:dong_a_jul/view/notification_pages/notification.dart';
 import 'package:dong_a_jul/view/profile_pages/profile.dart';
 import 'package:dong_a_jul/view/main_pages/searching/main_searching.dart';
 import 'package:dong_a_jul/view/main_pages/today/main_today.dart';
-import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-void main() async{
+Future main() async {
   await initializeDateFormatting();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    // This is where you can initialize the resources needed by your app while
+    // the splash screen is displayed.  Remove the following example because
+    // delaying the user experience is a bad design practice!
+    // ignore_for_file: avoid_print
+
+
+    FlutterNativeSplash.remove();
+  }
 
   // This widget is the root of your application.
   @override
@@ -107,6 +129,7 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       MyBottomSheet(),
+
     ]);
   }
 }

@@ -1,3 +1,5 @@
+import 'package:dong_a_jul/view/sign_in_pages/login_home.dart';
+import 'package:dong_a_jul/view/sign_in_pages/login_sejong.dart';
 import 'package:dong_a_jul/view/profile_pages/profile_my.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +28,13 @@ class MyProfile extends StatelessWidget {
             color: Colors.grey[200],
             child: Column(
               children: [
+
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:
+                        (context) => LoginHome()),
+                    );},
                     child: Container(
                       padding: EdgeInsets.all(10),
                       color: Colors.white,
@@ -35,41 +42,7 @@ class MyProfile extends StatelessWidget {
                         children: [
                           ListTile(
                             title: Text(
-                              '모집기간 수정',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            trailing: Icon(Icons.arrow_forward_ios),
-                          ),
-                        ],
-                      ),
-                    )),
-                TextButton(
-                    onPressed: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: Text(
-                              '모집기간 수정',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            trailing: Icon(Icons.arrow_forward_ios),
-                          ),
-                        ],
-                      ),
-                    )),
-                TextButton(
-                    onPressed: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: Text(
-                              '모집기간 수정',
+                              '로그인 기능',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             trailing: Icon(Icons.arrow_forward_ios),

@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   table_calendar: ^3.0.9
   intl: ^0.18.1
+  flutter_native_splash: ^2.3.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +69,8 @@ flutter:
     - pictures/image/category/four.png
     - pictures/image/category/five.png
     - pictures/image/category/six.png
+    - pictures/image/logo_bigger.png
+    - pictures/image/logo_contrast.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
