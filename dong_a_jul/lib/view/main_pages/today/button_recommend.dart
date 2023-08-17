@@ -1,3 +1,4 @@
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_main_non-member.dart';
 import 'package:flutter/material.dart';
 
 import '../../dongari_main_pages/dongari_main.dart';
@@ -11,7 +12,7 @@ class ButtonRecommend extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DongariMain()),
+            MaterialPageRoute(builder: (context) => DongariMainNonMember()),
           );
         },
         child: ClipRRect(
@@ -48,7 +49,7 @@ class ButtonRecommend extends StatelessWidget {
                           height: 30,
                         ),
                         Text(
-                          '아롬',
+                          '인터페이스',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 17,

@@ -10,10 +10,9 @@ class ChoiceQuestion extends StatefulWidget {
 }
 
 class _ChoiceQuestionState extends State<ChoiceQuestion> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    var selectedOption;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -34,89 +33,97 @@ class _ChoiceQuestionState extends State<ChoiceQuestion> {
         ),
         actions: [
           TextButton(
-              onPressed: () {},
-              child: Text(
-                '완료',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))
+            onPressed: () {
+              print('제출완료');
+            },
+            child: Text(
+              '완료',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Row(
-                children: [
-                  Text(
-                    '1. 질문을 입력하세요',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Container(
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+//todo 유효성 검사
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '질문을 입력해주세요';
+                          }
+                          return null;
+                        },
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 2,
+                        decoration: InputDecoration(
+                          hintText: '1. 질문을 입력하세요.',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.green,
+                              width: 2.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            RadioListTile(
-              title: Text('보기 1'),
-              value: 'Option A',
-              groupValue: selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  selectedOption = value;
-                });
-              },
-            ),
-            RadioListTile(
-              title: Text('보기 2'),
-              value: 'Option A',
-              groupValue: selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  selectedOption = value;
-                });
-              },
-            ),
-            OutlinedButton(
-              //todo 버튼 onPressed
-              onPressed: () {},
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
                 ),
-                minimumSize: MaterialStateProperty.all(Size(300, 45)), // 사이즈 조정
-              ),
-              child: const Text("보기 추가하기"),
+                OutlinedButton(
+//todo 버튼 onPressed
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                    ),
+                    minimumSize:
+                        MaterialStateProperty.all(Size(300, 45)), // 사이즈 조정
+                  ),
+                  child: const Text("보기 추가하기"),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 75, left: 32, bottom: 10),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        IconButton(
+                          color: Color.fromRGBO(210, 210, 210, 1),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                        ),
+                        IconButton(
+                          color: Color.fromRGBO(210, 210, 210, 1),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(child: AddButtons()),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                      color: Color.fromRGBO(210, 210, 210, 1),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                      )),
-                  IconButton(
-                      color: Color.fromRGBO(210, 210, 210, 1),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                      ))
-                ],
-              ),
-            ),
-            Spacer(),
-            AddButtons(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

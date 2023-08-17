@@ -10,6 +10,7 @@ class LongQuestion extends StatefulWidget {
 }
 
 class _LongQuestionState extends State<LongQuestion> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,72 +33,101 @@ class _LongQuestionState extends State<LongQuestion> {
         ),
         actions: [
           TextButton(
-              onPressed: () {},
-              child: Text(
-                '완료',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))
+            onPressed: () {
+              print('제출완료');
+            },
+            child: Text(
+              '완료',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Row(
-                children: [
-                  Text(
-                    '1. 질문을 입력하세요',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
+      body: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Container(
+                    child: Form(
+                      key: _formKey,
+                      child: TextFormField(
+                        //todo 유효성 검사
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '질문을 입력해주세요';
+                          }
+                          return null;
+                        },
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 2,
+                        decoration: InputDecoration(
+                          hintText: '1. 질문을 입력하세요.',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.green,
+                              width: 2.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            TextFormField(
-              style: const TextStyle(fontSize: 18),
-              decoration: const InputDecoration(
-                contentPadding:
-                EdgeInsets.symmetric(vertical: 125, horizontal: 20),
-                hintText: '서술형 문항을 작성해주세요',
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(
-                      width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
                 ),
-                filled: true,
-                fillColor: Color.fromRGBO(240, 240, 240, 1),
-              ),
+                Container(
+                  width: 330,
+                  height: 260,
+                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      width: 1,
+                      color: Color.fromRGBO(240, 240, 240, 1),
+                    ),
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                  ),
+                  child: Text(
+                    '20자 미만의 답변을 입력할 수 있어요.',
+                    style: TextStyle(fontSize: 13, color: Color.fromRGBO(220 , 220, 220, 1)),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 75,left: 32,bottom: 10),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        IconButton(
+                          color: Color.fromRGBO(210, 210, 210, 1),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                        ),
+                        IconButton(
+                          color: Color.fromRGBO(210, 210, 210, 1),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(child: AddButtons()),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                      color: Color.fromRGBO(210, 210, 210, 1),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                      )),
-                  IconButton(
-                      color: Color.fromRGBO(210, 210, 210, 1),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                      ))
-                ],
-              ),
-            ),
-            Spacer(),
-            AddButtons(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

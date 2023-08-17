@@ -1,4 +1,3 @@
-import 'package:dong_a_jul/view/dongari_main_pages/dongari_survey/dongari_survey_shortquestion.dart';
 import 'package:flutter/material.dart';
 
 import 'survey_component/survey_add_question.dart';
@@ -29,53 +28,64 @@ class _DongariSurveyState extends State<DongariSurvey> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 30, left: 32, right: 32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
-                    radius: 40,
+      resizeToAvoidBottomInset: true,
+      body: CustomScrollView(slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
                   ),
-                  title: Text(
-                    '아롬',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  radius: 40,
+                ),
+                title: const Text(
+                  '아롬',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SingleChildScrollView(
+                    child: TextFormField(
+                      maxLines: 10,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 18),
+                      decoration: const InputDecoration(
+                        hintText: '지원 안내사항을 입력해주세요.\n\n(활동기간, 모집일정 등)',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderSide: BorderSide(
+                              width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
+                        ),
+                        filled: true,
+                        fillColor: Color.fromRGBO(240, 240, 240, 1),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 2,
-              child: TextFormField(
-                style: const TextStyle(fontSize: 18),
-                decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 150, horizontal: 20),
-                  hintText: '동아리 소개글을 입력해주세요',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                        width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
-                  ),
-                  filled: true,
-                  fillColor: Color.fromRGBO(240, 240, 240, 1),
+              Expanded(
+                child: Column(
+                  children: [
+                    Spacer(),
+                    AddButtons(),
+                    const SizedBox(height: 20),
+                  ],
                 ),
               ),
-            ),
-            Spacer(),
-            AddButtons(),
-          ],
+            ],
+          ),
         ),
-      ),
+      ]),
     );
   }
 }

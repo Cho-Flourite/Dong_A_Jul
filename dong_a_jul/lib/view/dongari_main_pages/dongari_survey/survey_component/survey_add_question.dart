@@ -10,7 +10,7 @@ class AddButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 30, top: 100, right: 30, bottom: 15),
+      margin: const EdgeInsets.only(left: 32, right: 32, bottom: 10),
       child: ElevatedButton(
         onPressed: () {
           showModalBottomSheet(
