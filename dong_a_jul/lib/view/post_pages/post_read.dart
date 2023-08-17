@@ -1,15 +1,15 @@
 import 'package:dong_a_jul/view/sign_in_pages/input_box.dart';
 import 'package:dong_a_jul/view/sign_in_pages/sign_up_pages/phone_verification.dart';
 import 'package:flutter/material.dart';
-
-class LoginSejong extends StatefulWidget {
-  const LoginSejong({super.key});
+import 'dart:io';
+class PostRead extends StatefulWidget {
+  const PostRead({super.key});
 
   @override
-  State<LoginSejong> createState() => _LoginSejongState();
+  State<PostRead> createState() => _PostReadState();
 }
 
-class _LoginSejongState extends State<LoginSejong> {
+class _PostReadState extends State<PostRead> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +27,21 @@ class _LoginSejongState extends State<LoginSejong> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 0, left: 20, bottom: 20),
+                      const EdgeInsets.only(top: 0, left: 20, bottom: 20),
                       child: Text(
                         '세종대학교 이메일',
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                     InputBox('이메일을 입력하세요'),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 50, left: 20, bottom: 20),
+                      const EdgeInsets.only(top: 50, left: 20, bottom: 20),
                       child: Text(
                         '비밀번호',
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                     InputBox('비밀번호를 입력하세요'),
@@ -59,7 +59,7 @@ class _LoginSejongState extends State<LoginSejong> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStatePropertyAll(Colors.orange[800]),
+                      MaterialStatePropertyAll(Colors.orange[800]),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
                           left: 150, right: 150, top: 10, bottom: 10)),
                     ),

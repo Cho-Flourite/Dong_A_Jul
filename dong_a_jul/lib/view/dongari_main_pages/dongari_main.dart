@@ -1,5 +1,5 @@
 import 'package:dong_a_jul/view/bottom_sheets/bottom_sheet.dart';
-import 'package:dong_a_jul/view/bottom_sheets/recruit_sheet.dart';
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_apply/dongari_apply_button.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_tab_announcement/dongari_announcement.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_tab_board/dongari_board.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_component/dongari_header.dart';
@@ -28,6 +28,7 @@ class _DongariMainState extends State<DongariMain> {
         child: DefaultTabController(
           length: 4,
           child: Scaffold(
+
             appBar: AppBar(
               backgroundColor: Colors.white,
               elevation: 0,
@@ -80,7 +81,7 @@ class _DongariMainState extends State<DongariMain> {
                         collapsedHeight: 6,
                         toolbarHeight: 0,
                         flexibleSpace: FlexibleSpaceBar(
-                          background: DongariMainDongari(),
+                          background: DongarHeader(),
                         ),
                         pinned: true,
                         backgroundColor: Colors.white,
@@ -140,7 +141,7 @@ class _DongariMainState extends State<DongariMain> {
           ),
         ),
       ),
-      RecruitmentBottomsheet(),
+      DongariApplyButton(),
     ]);
   }
 }

@@ -15,25 +15,27 @@ class _InformationCheckState extends State<InformationCheck> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Column(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(flex: 2, child: Container()),
+          Expanded(
+            flex: 10,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.only(top: 150, left: 20,),
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                  ),
                   child: Text(
                     '기본 정보를',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                   ),
                 ),
                 Padding(
-                  padding:
-                  const EdgeInsets.only(left: 20, bottom: 20),
+                  padding: const EdgeInsets.only(left: 20, bottom: 20),
                   child: Text(
                     '확인해주세요',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
@@ -195,7 +197,9 @@ class _InformationCheckState extends State<InformationCheck> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           children: [
                             Text(
@@ -218,33 +222,33 @@ class _InformationCheckState extends State<InformationCheck> {
                 ])
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 170),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStatePropertyAll(Colors.orange[800]),
-                    padding: MaterialStateProperty.all(EdgeInsets.only(
-                        left: 110, right: 110, top: 10, bottom: 10)),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ExistingDongari()),
-                    );
-                  },
-                  child: Text(
-                    '내 정보가 맞아요',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
+          ),
+          Expanded(flex: 2, child: Container()),
+          Expanded(
+            flex: 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.orange[800]),
+                  padding: MaterialStateProperty.all(EdgeInsets.only(
+                      left: 110, right: 110, top: 0, bottom: 0)),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ExistingDongari()),
+                  );
+                },
+                child: Text(
+                  '내 정보가 맞아요',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Expanded(flex: 1, child: Container()),
+        ],
       ),
     );
   }
