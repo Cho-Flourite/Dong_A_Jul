@@ -1,81 +1,87 @@
 import 'package:flutter/material.dart';
 
-class DongariMainDongari extends StatefulWidget {
-  const DongariMainDongari({super.key});
+class DongarHeader extends StatefulWidget {
+  const DongarHeader({super.key});
 
   @override
-  State<DongariMainDongari> createState() => _DongariMainDongariState();
+  State<DongarHeader> createState() => _DongarHeaderState();
 }
 
-class _DongariMainDongariState extends State<DongariMainDongari> {
+class _DongarHeaderState extends State<DongarHeader> {
   int count = 0;
   Color? heart = Colors.grey[400];
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(
-              'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
-          radius: 40,
-        ),
-        title: Container(
-          padding: EdgeInsets.symmetric(vertical: 7),
-          child: Row(
-            children: [
-              Text(
-                '아롬',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ],
-          ),
-        ),
-        trailing: Container(
-          height:100,
-          width: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    count++;
-                    heart = Colors.redAccent;
-                  });
-                },
-                icon: Icon(
-                  Icons.favorite,
-                  color: heart,
-                  size: 50,
-                ),
-              ),
-              SizedBox(width: 10,),
-              Text(
-                '$count',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-            ],
-          ),
-        ),
-        subtitle: Column(
-          children: [
-            SizedBox(
-              height: 5,
+      child: Stack(
+        children: [
+          Positioned(
+            left: 10,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
+              radius: 40,
             ),
-            Row(
+          ),
+          Positioned(
+            top: 14,
+            left: 100,
+            child: Text(
+              '아롬',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 320,
+            top: 5,
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      count++;
+                      heart = Colors.redAccent;
+                    });
+                  },
+                  icon: Icon(
+                    Icons.favorite,
+                    color: heart,
+                    size: 45,
+                  ),
+                ),
+                SizedBox(height: 5,),
+                Row(
+                  children: [
+                    SizedBox(width: 12,),
+                    Text(
+                      '$count',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 100,
+            top: 45,
+            child: Row(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
-                    color: Colors.greenAccent,
+                    color: Colors.lightGreenAccent,
                     child: Text(
-                      '#프로그래밍',
+                      '# 프로그래밍',
                       style: TextStyle(fontSize: 13),
                     ),
                   ),
@@ -87,23 +93,17 @@ class _DongariMainDongariState extends State<DongariMainDongari> {
                   borderRadius: BorderRadius.circular(10),
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
-                    color: Colors.greenAccent,
+                    color: Colors.lightGreenAccent,
                     child: Text(
-                      '#프로그래밍',
+                      '# 프로그래밍',
                       style: TextStyle(fontSize: 13),
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 5,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

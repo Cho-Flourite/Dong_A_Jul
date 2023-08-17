@@ -16,11 +16,14 @@ class TodaysClub extends StatelessWidget {
             onPressed: () {},
             child: Row(
               children: [
-                Icon(Icons.notifications),
+                Icon(Icons.notifications,color: Colors.orange[800],),
                 SizedBox(
                   width: 20,
                 ),
-                Text('7/23일에 정기모임 있습니다! 참석해주세요!'),
+                Text(
+                  '7/23일에 정기모임 있습니다! 참석해주세요!',
+                  style: TextStyle(color: Colors.black),
+                ),
               ],
             ),
             style: ButtonStyle(
@@ -51,7 +54,10 @@ class TodaysClub extends StatelessWidget {
                     ' 내 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  trailing: IconButton(icon: Icon(Icons.arrow_forward_ios), onPressed: () {  },),
+                  trailing: IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () {},
+                  ),
                 ),
                 Container(
                   color: Colors.white,
@@ -75,7 +81,6 @@ class TodaysClub extends StatelessWidget {
                     ' 오늘의 추천 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-
                 ),
                 Container(
                   color: Colors.grey[200],
@@ -83,7 +88,10 @@ class TodaysClub extends StatelessWidget {
                     children: [
                       ListTile(
                         title: Text('#체육 카테고리의 동아리를 추천해드려요'),
-                        trailing: IconButton(icon: Icon(Icons.arrow_forward_ios), onPressed: () {  },),
+                        trailing: IconButton(
+                          icon: Icon(Icons.arrow_forward_ios),
+                          onPressed: () {},
+                        ),
                       ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -110,9 +118,11 @@ class TodaysClub extends StatelessWidget {
                     ' 최근 활동 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  trailing: IconButton(icon: Icon(Icons.arrow_forward_ios), onPressed: () {  },),
+                  trailing: IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () {},
+                  ),
                 ),
-
                 Container(
                   child: Column(
                     children: [

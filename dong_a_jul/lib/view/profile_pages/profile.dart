@@ -1,3 +1,5 @@
+import 'package:dong_a_jul/view/post_pages/post_read.dart';
+import 'package:dong_a_jul/view/post_pages/post_write.dart';
 import 'package:dong_a_jul/view/sign_in_pages/login_home.dart';
 import 'package:dong_a_jul/view/sign_in_pages/login_sejong.dart';
 import 'package:dong_a_jul/view/profile_pages/profile_my.dart';
@@ -19,7 +21,10 @@ class MyProfile extends StatelessWidget {
           color: Colors.black,
         ),
         elevation: 0,
-        title: Text('MY',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+        title: Text(
+          'MY',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
       ),
       body: ListView(
         children: [
@@ -28,13 +33,13 @@ class MyProfile extends StatelessWidget {
             color: Colors.grey[200],
             child: Column(
               children: [
-
                 TextButton(
-                    onPressed: () {Navigator.push(
+                    onPressed: () {
+                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder:
-                        (context) => LoginHome()),
-                    );},
+                        MaterialPageRoute(builder: (context) => LoginHome()),
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.all(10),
                       color: Colors.white,
@@ -43,6 +48,50 @@ class MyProfile extends StatelessWidget {
                           ListTile(
                             title: Text(
                               '로그인 기능',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            trailing: Icon(Icons.arrow_forward_ios),
+                          ),
+                        ],
+                      ),
+                    )),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PostWrite()),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              '게시글 작성 페이지',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            trailing: Icon(Icons.arrow_forward_ios),
+                          ),
+                        ],
+                      ),
+                    )),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PostRead()),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              '게시글 열람 페이지',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             trailing: Icon(Icons.arrow_forward_ios),

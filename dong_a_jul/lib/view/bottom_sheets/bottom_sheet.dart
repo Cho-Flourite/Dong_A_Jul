@@ -15,15 +15,16 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
   late double _height;
   late double _blurValue = 0;
 
-  final double _lowLimit = 70;
-  final double _highLimit = 820;
-  final double _upThresh = 120;
-  final double _boundary = 700;
-  final double _downThresh = 750;
+  late double _lowLimit = 70;
+  late double _highLimit = 820;
+  late double _upThresh = 120;
+  late double _boundary = 700;
+  late double _downThresh = 750;
 
   /// 100 -> 600, 550 -> 100 으로 애니메이션이 진행 될 때,
   /// 드래그로 인한 _height의 변화 방지
   bool _longAnimation = false;
+  bool _appBarState = false;
 
   @override
   void initState() {
@@ -33,6 +34,12 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    _highLimit = size.height * 1;
+    _downThresh = size.height * 0.9;
+    _lowLimit = size.height * 0.1;
+    _upThresh = size.height * 0.15;
+    _boundary = size.height * 0.8;
     return Positioned(
         bottom: 0.0,
         child: BackdropFilter(
@@ -53,18 +60,21 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                           (_height <= _lowLimit && delta > 0) ||
                           (_height >= _highLimit && delta < 0)) return;
                       setState(() {
-                        /// 600으로 높이 설정
+                        /// 맨 위로 높이 설정
                         if (_upThresh <= _height && _height <= _boundary) {
                           _height = _highLimit;
                           _longAnimation = true;
                           _blurValue = 10;
+                          _appBarState = true;
                         }
 
-                        /// 100으로 높이 설정
-                        else if (_boundary <= _height && _height <= _downThresh) {
+                        /// 처음 위치로 높이 설정
+                        else if (_boundary <= _height &&
+                            _height <= _downThresh) {
                           _height = _lowLimit;
                           _longAnimation = true;
                           _blurValue = 0;
+                          _appBarState = false;
                         }
 
                         /// 기본 작동
@@ -89,7 +99,6 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                       width: MediaQuery.of(context).size.width,
                       height: _height,
                       child: Scaffold(
-
                           body: CustomScrollView(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
@@ -98,14 +107,21 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                             backgroundColor: Colors.grey[300],
                             centerTitle: true,
                             elevation: 0,
-                            title: Container(
-                              width: 70,
-                              height: 4.5,
-                              decoration: const BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                            ),
+                            title: _appBarState
+                                ? Container(
+                                    width: 40,
+                                    height: 4.5,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.grey,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                  )
+                                : Text(
+                                    '내 동아리로',
+                                    style: TextStyle(
+                                        color: Colors.orange[800],
+                                        fontWeight: FontWeight.bold),
+                                  ),
                             bottom: TabBar(
                               indicatorWeight: 4.0,
                               indicatorColor: Colors.orange[800],
