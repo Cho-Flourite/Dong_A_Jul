@@ -2,6 +2,7 @@ import 'package:dong_a_jul/view/main_pages/today/button_current.dart';
 import 'package:dong_a_jul/view/main_pages/today/button_my.dart';
 import 'package:dong_a_jul/view/main_pages/today/button_recommend.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_main.dart';
+import 'package:dong_a_jul/view/main_pages/today/button_recruiting.dart';
 import 'package:flutter/material.dart';
 
 class TodaysClub extends StatelessWidget {
@@ -16,7 +17,10 @@ class TodaysClub extends StatelessWidget {
             onPressed: () {},
             child: Row(
               children: [
-                Icon(Icons.notifications,color: Colors.orange[800],),
+                Icon(
+                  Icons.notifications,
+                  color: Colors.orange[800],
+                ),
                 SizedBox(
                   width: 20,
                 ),
@@ -54,10 +58,6 @@ class TodaysClub extends StatelessWidget {
                     ' 내 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {},
-                  ),
                 ),
                 Container(
                   color: Colors.white,
@@ -76,37 +76,38 @@ class TodaysClub extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                ListTile(
-                  title: Text(
-                    ' 오늘의 추천 동아리',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Container(
+                  color: Colors.grey[200],
+                  child: ListTile(
+                    title: Text(
+                      ' 모집중인 동아리',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios),
+                      onPressed: () {},
+                    ),
                   ),
                 ),
                 Container(
                   color: Colors.grey[200],
                   child: Column(
                     children: [
-                      ListTile(
-                        title: Text('#체육 카테고리의 동아리를 추천해드려요'),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward_ios),
-                          onPressed: () {},
-                        ),
-                      ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            ButtonRecommend(),
-                            ButtonRecommend(),
-                            ButtonRecommend(),
-                            ButtonRecommend(),
+                            ButtonRecruiting(),
+                            ButtonRecruiting(),
+                            ButtonRecruiting(),
+                            ButtonRecruiting(),
                           ],
                         ),
                       ),
                       SizedBox(
                         height: 10,
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -127,7 +128,6 @@ class TodaysClub extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        color: Colors.grey[200],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -137,7 +137,6 @@ class TodaysClub extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        color: Colors.grey[200],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -147,7 +146,6 @@ class TodaysClub extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        color: Colors.grey[200],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

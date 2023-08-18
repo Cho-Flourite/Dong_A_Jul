@@ -7,7 +7,7 @@ class ButtonCurrent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return OutlinedButton(
         onPressed: () {
           Navigator.push(
             context,
@@ -20,8 +20,8 @@ class ButtonCurrent extends StatelessWidget {
           child: Container(
             child: Image.network(
               'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-              width: 180,
-              height: 180,
+              width: 120,
+              height: 120,
               fit: BoxFit.cover,
             ),
           ),

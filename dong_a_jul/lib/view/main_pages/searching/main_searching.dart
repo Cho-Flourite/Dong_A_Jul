@@ -4,8 +4,91 @@ import 'package:flutter/material.dart';
 
 import '../../dongari_main_pages/dongari_main.dart';
 
-class Searching extends StatelessWidget {
+class Searching extends StatefulWidget {
   const Searching({super.key});
+
+  @override
+  State<Searching> createState() => _SearchingState();
+}
+
+class _SearchingState extends State<Searching> {
+  String result = '';
+  bool isAcademic = false;
+  bool isAthletic = false;
+  bool isReligion = false;
+  bool isVolunteer = false;
+  bool isShow = false;
+  bool isCulture = false;
+  late List<bool> isSelected;
+
+  @override
+  void initState() {
+    isSelected = [
+      isAcademic,
+      isAthletic,
+      isReligion,
+      isVolunteer,
+      isShow,
+      isCulture
+    ];
+    super.initState();
+  }
+
+  void toggleSelect(value) {
+    if (value == 0) {
+      isAcademic = true;
+      isAthletic = false;
+      isReligion = false;
+      isVolunteer = false;
+      isShow = false;
+      isCulture = false;
+    } else if (value == 1) {
+      isAcademic = false;
+      isAthletic = true;
+      isReligion = false;
+      isVolunteer = false;
+      isShow = false;
+      isCulture = false;
+    } else if (value == 2) {
+      isAcademic = false;
+      isAthletic = false;
+      isReligion = true;
+      isVolunteer = false;
+      isShow = false;
+      isCulture = false;
+    } else if (value == 3) {
+      isAcademic = false;
+      isAthletic = false;
+      isReligion = false;
+      isVolunteer = true;
+      isShow = false;
+      isCulture = false;
+    } else if (value == 4) {
+      isAcademic = false;
+      isAthletic = false;
+      isReligion = false;
+      isVolunteer = false;
+      isShow = true;
+      isCulture = false;
+    } else if (value == 5) {
+      isAcademic = false;
+      isAthletic = false;
+      isReligion = false;
+      isVolunteer = false;
+      isShow = false;
+      isCulture = true;
+    }
+    setState(() {
+      isSelected = [
+        isAcademic,
+        isAthletic,
+        isReligion,
+        isVolunteer,
+        isShow,
+        isCulture
+      ];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +102,7 @@ class Searching extends StatelessWidget {
             ),
             hintText: '관심있는 동아리를 검색해보세요',
             elevation: MaterialStateProperty.all(0),
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxHeight: 40,
             ),
           ),
@@ -29,28 +112,30 @@ class Searching extends StatelessWidget {
           color: Colors.orange[800],
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20.0),
                 topRight: Radius.circular(20.0),
               ),
               color: Colors.grey[200],
             ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                        onPressed: () {},
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                children: [
+                  ToggleButtons(
+                    fillColor: Colors.blue,
+                    selectedColor: Colors.red,
+                    isSelected: isSelected,
+                    onPressed: toggleSelect,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -58,7 +143,7 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
+                              const Text(
                                 '학술',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -66,15 +151,16 @@ class Searching extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )),
-                    TextButton(
-                        onPressed: () {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -82,7 +168,7 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
+                              const Text(
                                 '체육',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -90,15 +176,16 @@ class Searching extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )),
-                    TextButton(
-                        onPressed: () {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -106,7 +193,7 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
+                              const Text(
                                 '종교',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -114,38 +201,16 @@ class Searching extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Container(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-              ),
-              color: Colors.grey[200],
-            ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                        onPressed: () {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -153,7 +218,7 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
+                              const Text(
                                 '봉사',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -161,15 +226,16 @@ class Searching extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )),
-                    TextButton(
-                        onPressed: () {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -177,7 +243,7 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
+                              const Text(
                                 '공연',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -185,15 +251,16 @@ class Searching extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )),
-                    TextButton(
-                        onPressed: () {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Image.asset(
@@ -201,57 +268,29 @@ class Searching extends StatelessWidget {
                                 width: 70,
                                 height: 50,
                               ),
-                              Text(
-                                '체육',
+                              const Text(
+                                '문화',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
-                        )),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
-        ListTile(
-          title: Text(
-            ' 모집중인 동아리',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          trailing: IconButton(
-            icon: Icon(Icons.arrow_forward_ios),
-            onPressed: () {},
-          ),
-        ),
-        Container(
-          color: Colors.grey[200],
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ButtonMy(),
-                ButtonMy(),
-                ButtonMy(),
-                ButtonMy(),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Container(
-          color: Colors.grey[200],
-          child: Column(
+          color: Colors.white,
+          child: const Column(
             children: [
               ButtonRecruit(),
               ButtonRecruit(),
