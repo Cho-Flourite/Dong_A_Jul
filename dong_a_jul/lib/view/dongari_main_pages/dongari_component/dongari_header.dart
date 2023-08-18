@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DongarHeader extends StatefulWidget {
-  const DongarHeader({super.key});
+class DongariHeader extends StatefulWidget {
+  const DongariHeader({super.key});
 
   @override
-  State<DongarHeader> createState() => _DongarHeaderState();
+  State<DongariHeader> createState() => _DongariHeaderState();
 }
 
-class _DongarHeaderState extends State<DongarHeader> {
+class _DongariHeaderState extends State<DongariHeader> {
   int count = 0;
   Color? heart = Colors.grey[400];
 

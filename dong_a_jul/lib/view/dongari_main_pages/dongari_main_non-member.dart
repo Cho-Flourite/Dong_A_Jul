@@ -74,7 +74,7 @@ class _DongariMainNonMemberState extends State<DongariMainNonMember> {
                         collapsedHeight: 6,
                         toolbarHeight: 0,
                         flexibleSpace: FlexibleSpaceBar(
-                          background: DongariMainDongari(),
+                          background: DongariHeader(),
                         ),
                         pinned: true,
                         backgroundColor: Colors.white,

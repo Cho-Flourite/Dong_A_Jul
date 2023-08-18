@@ -81,7 +81,7 @@ class _DongariMainState extends State<DongariMain> {
                         collapsedHeight: 6,
                         toolbarHeight: 0,
                         flexibleSpace: FlexibleSpaceBar(
-                          background: DongarHeader(),
+                          background: DongariHeader(),
                         ),
                         pinned: true,
                         backgroundColor: Colors.white,
