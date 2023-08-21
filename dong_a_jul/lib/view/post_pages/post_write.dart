@@ -17,13 +17,41 @@ class PostWrite extends StatefulWidget {
 class _PostWriteState extends State<PostWrite> {
   final ImagePicker _picker = ImagePicker();
   List<XFile> _pickedImgs = [];
-  late int _pickedImgsNum = _pickedImgs.length;
 
   Future<void> loadImages() async {
     final List<XFile> images = await _picker.pickMultiImage();
     if (images != null) {
       setState(() {
         _pickedImgs = images;
+        _boxContents = [
+          IconButton(
+              onPressed: () {
+                loadImages();
+              },
+              icon: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.6), shape: BoxShape.circle),
+                  child: Icon(
+                    CupertinoIcons.camera,
+                    color: Colors.black,
+                  ))),
+          Container(),
+          Container(),
+          _pickedImgs.length <= 4
+              ? Container()
+              : FittedBox(
+              child: Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.6),
+                      shape: BoxShape.circle),
+                  child: Text(
+                    '+${(_pickedImgs.length - 4).toString()}',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w800),
+                  ))),
+        ];
       });
     }
   }
@@ -52,7 +80,7 @@ class _PostWriteState extends State<PostWrite> {
                     color: Colors.white.withOpacity(0.6),
                     shape: BoxShape.circle),
                 child: Text(
-                  '+${(_pickedImgsNum - 4).toString()}',
+                  '+${(_pickedImgs.length - 4).toString()}',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w800),
                 ))),
@@ -88,7 +116,7 @@ class _PostWriteState extends State<PostWrite> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
-                      flex: 10,
+                      flex: 9,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -161,7 +189,7 @@ class _PostWriteState extends State<PostWrite> {
                     ),
                     Expanded(
                       child: Container(),
-                      flex: 1,
+                      flex: 2,
                     ),
                   ],
                 ),
