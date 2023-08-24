@@ -1,3 +1,4 @@
+import 'package:dong_a_jul/view/make_dongari_pages/make_dongari.dart';
 import 'package:dong_a_jul/view/post_pages/post_read.dart';
 import 'package:dong_a_jul/view/post_pages/post_write.dart';
 import 'package:dong_a_jul/view/sign_in_pages/login_home.dart';
@@ -92,6 +93,28 @@ class MyProfile extends StatelessWidget {
                           ListTile(
                             title: Text(
                               '게시글 열람 페이지',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            trailing: Icon(Icons.arrow_forward_ios),
+                          ),
+                        ],
+                      ),
+                    )),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MakeDongari()),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              '동아리 개설하기',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             trailing: Icon(Icons.arrow_forward_ios),
