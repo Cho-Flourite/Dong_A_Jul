@@ -56,25 +56,24 @@ class _AgeGenderState extends State<AgeGender> {
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 20,
-              right: 20,
-            ),
-            child: TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: '나이를 입력하세요',
-                hintStyle: TextStyle(color: Colors.grey),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none
-                ),
-                fillColor: Colors.grey[200],
-                filled: true,
-              ),
-            ),
-          ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                      ),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          hintText: '나이를 입력하세요',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide.none),
+                          fillColor: Colors.grey[200],
+                          filled: true,
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding:
                           const EdgeInsets.only(top: 10, left: 20, bottom: 0),

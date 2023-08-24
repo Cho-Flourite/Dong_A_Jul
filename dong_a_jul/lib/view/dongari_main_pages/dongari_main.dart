@@ -48,23 +48,8 @@ class _DongariMainState extends State<DongariMain> {
               actions: [
                 IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => NotificationPage()),
-                    );
                   },
-                  icon: const Icon(Icons.notifications_none_sharp),
-                  color: Colors.black,
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyProfile()),
-                    );
-                  },
-                  icon: const Icon(Icons.person),
+                  icon: const Icon(Icons.more_vert),
                   color: Colors.black,
                 ),
               ],

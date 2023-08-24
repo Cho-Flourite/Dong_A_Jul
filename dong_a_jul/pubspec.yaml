@@ -73,6 +73,12 @@ flutter:
     - pictures/image/category/four.png
     - pictures/image/category/five.png
     - pictures/image/category/six.png
+    - pictures/image/category/one_reverse.png
+    - pictures/image/category/two_reverse.png
+    - pictures/image/category/three_reverse.png
+    - pictures/image/category/four_reverse.png
+    - pictures/image/category/five_reverse.png
+    - pictures/image/category/six_reverse.png
     - pictures/image/logo_bigger.png
     - pictures/image/logo_contrast.png
   #   - images/a_dot_burr.jpeg

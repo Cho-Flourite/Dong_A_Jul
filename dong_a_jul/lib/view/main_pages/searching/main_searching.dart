@@ -120,167 +120,237 @@ class _SearchingState extends State<Searching> {
             ),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  ToggleButtons(
-                    fillColor: Colors.blue,
-                    selectedColor: Colors.red,
-                    isSelected: isSelected,
-                    onPressed: toggleSelect,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/one.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '학술',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/two.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '체육',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ToggleButtons(
+                      fillColor: Colors.grey[200],
+                      borderWidth: 0,
+                      borderColor: Colors.grey[200],
+                      isSelected: isSelected.sublist(0, 3),
+                      onPressed: (index) => toggleSelect(index),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: isAcademic
+                                  ? Colors.orange[800]
+                                  : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isAcademic
+                                    ? Image.asset(
+                                        'pictures/image/category/one_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/one.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '학술',
+                                  style: TextStyle(
+                                      color: isAcademic
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/three.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '종교',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/four.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '봉사',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: isAthletic
+                                  ? Colors.orange[800]
+                                  : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isAthletic
+                                    ? Image.asset(
+                                        'pictures/image/category/two_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/two.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '체육',
+                                  style: TextStyle(
+                                      color: isAthletic
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/five.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '공연',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'pictures/image/category/six.png',
-                                width: 70,
-                                height: 50,
-                              ),
-                              const Text(
-                                '문화',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: isReligion
+                                  ? Colors.orange[800]
+                                  : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isReligion
+                                    ? Image.asset(
+                                        'pictures/image/category/three_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/three.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '종교',
+                                  style: TextStyle(
+                                      color: isReligion
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    ToggleButtons(
+                      borderWidth: 0,
+                      fillColor: Colors.grey[200],
+                      borderColor: Colors.grey[200],
+                      isSelected: isSelected.sublist(3, 6),
+                      onPressed: (index) => toggleSelect(index + 3),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: isVolunteer
+                                  ? Colors.orange[800]
+                                  : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isVolunteer
+                                    ? Image.asset(
+                                        'pictures/image/category/four_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/four.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '봉사',
+                                  style: TextStyle(
+                                      color: isVolunteer
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: isShow ? Colors.orange[800] : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isShow
+                                    ? Image.asset(
+                                        'pictures/image/category/five_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/five.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '공연',
+                                  style: TextStyle(
+                                      color:
+                                          isShow ? Colors.white : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color:
+                                  isCulture ? Colors.orange[800] : Colors.white,
+                            ),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                isCulture
+                                    ? Image.asset(
+                                        'pictures/image/category/six_reverse.png',
+                                        width: 70,
+                                        height: 50,
+                                      )
+                                    : Image.asset(
+                                        'pictures/image/category/six.png',
+                                        width: 70,
+                                        height: 50,
+                                      ),
+                                Text(
+                                  '문화',
+                                  style: TextStyle(
+                                      color: isCulture
+                                          ? Colors.white
+                                          : Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
