@@ -197,6 +197,29 @@ class _MakeDongariMembersState extends State<MakeDongariMembers> {
                       ),
                     Spacer(),
                     Padding(
+                      padding: const EdgeInsets.only(left: 32),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            IconButton(
+                              color: Color.fromRGBO(210, 210, 210, 1),
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                              ),
+                            ),
+                            IconButton(
+                              color: Color.fromRGBO(210, 210, 210, 1),
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.arrow_forward_ios,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.only(left: 28, right: 28,bottom: 36),
                       child: GestureDetector(
                         onTap: () {

@@ -116,7 +116,7 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
             child: Container(
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.only(top: 24, left: 24,right: 24),
+                padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -161,22 +161,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isAcademic
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/one.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isAcademic
+                                                ? Image.asset(
+                                                    'pictures/image/category/one_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/one.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
+                                            Text(
                                               '학술',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isAcademic
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -194,22 +205,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isAthletic
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/two.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isAthletic
+                                                ? Image.asset(
+                                                    'pictures/image/category/two_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/two.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
+                                            Text(
                                               '체육',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isAthletic
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -227,22 +249,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isReligion
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/three.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isReligion
+                                                ? Image.asset(
+                                                    'pictures/image/category/three_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/three.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
-                                              '봉사',
+                                            Text(
+                                              '종교',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isReligion
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -270,22 +303,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isVolunteer
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/four.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isVolunteer
+                                                ? Image.asset(
+                                                    'pictures/image/category/four_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/four.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
+                                            Text(
                                               '봉사',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isVolunteer
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -303,22 +347,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isShow
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/five.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isShow
+                                                ? Image.asset(
+                                                    'pictures/image/category/five_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/five.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
+                                            Text(
                                               '공연',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isShow
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -336,22 +391,33 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          color: isCulture
+                                              ? Colors.orange[800]
+                                              : Colors.white,
                                         ),
                                         padding: const EdgeInsets.all(10),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              'pictures/image/category/six.png',
-                                              width: _size.width * 0.2,
-                                              height: _size.height * 0.03,
-                                            ),
+                                            isCulture
+                                                ? Image.asset(
+                                                    'pictures/image/category/six_reverse.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  )
+                                                : Image.asset(
+                                                    'pictures/image/category/six.png',
+                                                    width: _size.width * 0.2,
+                                                    height: _size.height * 0.03,
+                                                  ),
                                             SizedBox(height: 15),
-                                            const Text(
+                                            Text(
                                               '문화',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: isCulture
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ],
@@ -406,10 +472,12 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                     color: Color.fromRGBO(240, 240, 240, 1)),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
                                 borderSide: BorderSide(
                                     width: 1,
-                                    color: Colors.orange), // Customize focused border color here
+                                    color: Colors
+                                        .orange), // Customize focused border color here
                               ),
                               filled: true,
                               fillColor: Color.fromRGBO(240, 240, 240, 1),
@@ -439,7 +507,8 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                           TextFormField(
                             maxLines: 3,
                             maxLength: 40,
-                            controller: _textFieldController, // 컨트롤러 연결
+                            controller: _textFieldController,
+                            // 컨트롤러 연결
                             style: const TextStyle(fontSize: 18),
                             decoration: const InputDecoration(
                               contentPadding: EdgeInsets.symmetric(
@@ -460,10 +529,12 @@ class _MakeDongariCategoryState extends State<MakeDongariCategory> {
                                     color: Color.fromRGBO(240, 240, 240, 1)),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
                                 borderSide: BorderSide(
                                     width: 1,
-                                    color: Colors.orange), // Customize focused border color here
+                                    color: Colors
+                                        .orange), // Customize focused border color here
                               ),
                               filled: true,
                               fillColor: Color.fromRGBO(240, 240, 240, 1),
