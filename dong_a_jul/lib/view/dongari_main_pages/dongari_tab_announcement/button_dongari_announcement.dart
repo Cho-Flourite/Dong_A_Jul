@@ -34,7 +34,7 @@ class DongariAnnouncementButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-                  color: Colors.greenAccent,
+                  color: Colors.lightGreenAccent,
                   child: Text(
                     '부장',
                     style: TextStyle(

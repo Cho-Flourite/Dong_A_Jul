@@ -7,23 +7,86 @@ class ButtonCurrent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
+    return TextButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => DongariMain()),
+            MaterialPageRoute(builder: (context) => DongariMain()),
           );
         },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
-            child: Image.network(
-              'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg',
-              width: 120,
-              height: 120,
-              fit: BoxFit.cover,
-            ),
+        child: Container(
+          width: 170,
+          child: Column(
+            children: [
+              Material(
+                elevation: 5,
+                borderRadius: BorderRadius.circular(10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    child: Stack(children: [
+                      Positioned(
+                        child: Image.network(
+                          'https://www.kindacode.com/wp-content/uploads/2022/07/bottle.jpeg',
+                          width: 170,
+                          height: 170,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Positioned(
+                          child: Opacity(
+                            opacity: 0.6,
+                            child: Container(
+                              width: 170,
+                              height: 170,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.white10,
+                                      Colors.white,
+                                    ],
+                                  )),
+                            ),
+                          )),
+                      Positioned(
+                          child: Container(
+                            width: 170,
+                            height: 170,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [Colors.white.withOpacity(0.1),Colors.white.withOpacity(0.5)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter
+                              )
+                            ),
+                          )),
+                      Positioned(
+                          top: 140,
+                          left: 10,
+                          child: Text(
+                            '아롬',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          )),
+                    ]),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Row(children: [
+                CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.white,
+                  child: Image.network('http://www.clickhd.co.kr/xe/files/attach/images/227/112/546/%EC%96%B4%ED%94%BC%EC%B9%98.png'),
+                ),
+                SizedBox(width: 10,),
+                Text('아롬',style: TextStyle(color: Colors.black),),
+              ],),
+            ],
           ),
         ));
   }

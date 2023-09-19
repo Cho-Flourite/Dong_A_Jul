@@ -62,6 +62,7 @@ class _DongariMainState extends State<DongariMain> {
                       handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                           context),
                       sliver: SliverAppBar(
+                        automaticallyImplyLeading: false,
                         expandedHeight: 120.0,
                         collapsedHeight: 6,
                         toolbarHeight: 0,

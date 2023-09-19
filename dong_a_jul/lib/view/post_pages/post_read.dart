@@ -3,10 +3,14 @@ import 'dart:ui';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_component/dongari_header.dart';
+import 'package:dong_a_jul/view/post_pages/report_post.dart';
 import 'package:dong_a_jul/view/sign_in_pages/input_box.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -103,7 +107,104 @@ class _PostReadState extends State<PostRead> {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext) {
+                        return Container(
+                          height: 150, // 모달 높이 크기
+                          decoration: BoxDecoration(
+                            color: Colors.white, // 모달 배경색
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: 
+                                      (context) => ReportPost()),
+                                  );
+                                },
+                                child: const Text(
+                                  '게시글 신고',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.redAccent),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      title: const Text(
+                                        '이지금님을 차단하시겠어요?',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      content: const Text(
+                                        '차단 후에는 해당 유저의 게시글이 표시되지 않습니다.',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12),
+                                      ),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Cancel'),
+                                          child: const Text(
+                                            '취소',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) => AlertDialog(
+                                                title: Text(
+                                                  '이지금님이 차단되었습니다.',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                content: const Text(
+                                                  '차단 후에는 해당 유저의 게시글이 표시되지 않습니다.',
+                                                  style: TextStyle(
+                                                      color: Colors.grey,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 12),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            '차단',
+                                            style: TextStyle(
+                                                color: Colors.orange[800],
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  '유저 차단',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.redAccent),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      });
+                },
                 icon: const Icon(Icons.more_vert),
                 color: Colors.black,
               )
@@ -243,21 +344,24 @@ class _PostReadState extends State<PostRead> {
                             ),
                             Text(
                               '아롬',
-                              style: TextStyle(fontSize: 10, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.grey),
                             ),
                             SizedBox(
                               width: 5,
                             ),
                             Text(
                               '체육 · 산악   ·',
-                              style: TextStyle(fontSize: 10, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.grey),
                             ),
                             SizedBox(
                               width: 7,
                             ),
                             Text(
                               '2023년 6월 24일',
-                              style: TextStyle(fontSize: 10, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -278,49 +382,11 @@ class _PostReadState extends State<PostRead> {
                     children: [
                       Padding(
                         padding: EdgeInsets.all(20.0),
-                        child: Text('댓글 2개',style: TextStyle(color: Colors.grey),),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
-                              radius: 20,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '이지금',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  '너무 맛있겠당 ㅠ 저도 참석할걸 그랬어용',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                  ),
-                                ),
-                                Text(
-                                  '2023년 6월 24일',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey,
-
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                        child: Text(
+                          '댓글 2개',
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ),
-
                       Padding(
                         padding: EdgeInsets.all(10.0),
                         child: Row(
@@ -353,7 +419,6 @@ class _PostReadState extends State<PostRead> {
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
-
                                   ),
                                 ),
                               ],
@@ -393,7 +458,45 @@ class _PostReadState extends State<PostRead> {
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
-
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
+                              radius: 20,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '이지금',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  '너무 맛있겠당 ㅠ 저도 참석할걸 그랬어용',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  '2023년 6월 24일',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ],

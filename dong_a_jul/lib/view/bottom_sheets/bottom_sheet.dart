@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:dong_a_jul/view/bottom_sheets/bottom_interest/bottom_sheet_interest.dart';
 import 'package:dong_a_jul/view/bottom_sheets/bottom_my/bottom_sheet_my.dart';
+import 'package:dong_a_jul/view/bottom_sheets/scroller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyBottomSheet extends StatefulWidget {
   const MyBottomSheet({super.key});
@@ -12,14 +14,14 @@ class MyBottomSheet extends StatefulWidget {
 }
 
 class _MyBottomSheetState extends State<MyBottomSheet> {
-  late double _height;
+  late double _height = 0;
   late double _blurValue = 0;
 
-  late double _lowLimit = 70;
-  late double _highLimit = 820;
-  late double _upThresh = 120;
-  late double _boundary = 700;
-  late double _downThresh = 750;
+  late double _lowLimit;
+  late double _highLimit;
+  late double _upThresh;
+  late double _boundary;
+  late double _downThresh;
 
   /// 100 -> 600, 550 -> 100 으로 애니메이션이 진행 될 때,
   /// 드래그로 인한 _height의 변화 방지
@@ -29,7 +31,6 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
   @override
   void initState() {
     super.initState();
-    _height = _lowLimit;
   }
 
   @override
@@ -37,7 +38,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
     final Size size = MediaQuery.of(context).size;
     _highLimit = size.height * 1;
     _downThresh = size.height * 0.9;
-    _lowLimit = size.height * 0.1;
+    _lowLimit = size.height * 0.08;
     _upThresh = size.height * 0.15;
     _boundary = size.height * 0.8;
     return Positioned(
@@ -66,6 +67,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                           _longAnimation = true;
                           _blurValue = 10;
                           _appBarState = true;
+                          context.read<Scroller>().up();
                         }
 
                         /// 처음 위치로 높이 설정
@@ -75,6 +77,9 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                           _longAnimation = true;
                           _blurValue = 0;
                           _appBarState = false;
+                          Future.delayed(const Duration(milliseconds: 600), () {
+                            context.read<Scroller>().down();
+                          });
                         }
 
                         /// 기본 작동
@@ -97,13 +102,14 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                       },
                       duration: const Duration(milliseconds: 1000),
                       width: MediaQuery.of(context).size.width,
-                      height: _height,
+                      height: _height == 0 ? _lowLimit : _height,
                       child: Scaffold(
                           body: CustomScrollView(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         slivers: [
                           SliverAppBar(
+                            automaticallyImplyLeading: false,
                             backgroundColor: Colors.grey[300],
                             centerTitle: true,
                             elevation: 0,
@@ -116,12 +122,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
                                   )
-                                : Text(
-                                    '내 동아리로',
-                                    style: TextStyle(
-                                        color: Colors.orange[800],
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                : Container(),
                             bottom: TabBar(
                               indicatorWeight: 4.0,
                               indicatorColor: Colors.orange[800],

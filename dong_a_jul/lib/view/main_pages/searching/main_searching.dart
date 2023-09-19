@@ -93,6 +93,7 @@ class _SearchingState extends State<Searching> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: ClampingScrollPhysics(),
       children: [
         ListTile(
           title: SearchBar(

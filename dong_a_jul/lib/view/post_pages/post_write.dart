@@ -156,7 +156,7 @@ class _PostWriteState extends State<PostWrite> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 5),
+                            padding: EdgeInsets.only(left: 5),
                             child: Row(
                               children: List.generate(
                                   4,

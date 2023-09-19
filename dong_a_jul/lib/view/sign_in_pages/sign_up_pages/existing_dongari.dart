@@ -12,6 +12,8 @@ class ExistingDongari extends StatefulWidget {
 }
 
 class _ExistingDongariState extends State<ExistingDongari> {
+  int count = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,7 @@ class _ExistingDongariState extends State<ExistingDongari> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 320, bottom: 0),
+                      padding: const EdgeInsets.only(left: 300, bottom: 0),
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -67,7 +69,13 @@ class _ExistingDongariState extends State<ExistingDongari> {
                     SizedBox(
                       height: 50,
                     ),
-                    InputBoxExisting('동아리를 입력하세요'),
+                    Column(
+                        children: List.generate(count, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InputBoxExisting('동아리를 입력하세요'),
+                      );
+                    })),
                     Padding(
                       padding: const EdgeInsets.only(top: 30, left: 20),
                       child: OutlinedButton(
@@ -76,7 +84,13 @@ class _ExistingDongariState extends State<ExistingDongari> {
                                   left: 110, right: 110, top: 10, bottom: 10),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              if (count < 3) {
+                                count++;
+                              }
+                            });
+                          },
                           child: Text(
                             '다른 동아리도 추가할게요',
                             style: TextStyle(color: Colors.grey),

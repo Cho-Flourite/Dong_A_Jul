@@ -1,3 +1,4 @@
+import 'package:dong_a_jul/view/dongari_main_pages/dongari_survey_result/dongari_survey_result_home.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_tab_recruitment/dongari_recruitment_period.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_survey/dongari_survey.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _DongariManagerState extends State<DongariManager> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => RecruitmentPeriod()));
           },
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
         ListTile(
@@ -32,7 +33,7 @@ class _DongariManagerState extends State<DongariManager> {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           onTap: () {},
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
         ListTile(
@@ -41,7 +42,7 @@ class _DongariManagerState extends State<DongariManager> {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           onTap: () {},
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
         ListTile(
@@ -50,7 +51,7 @@ class _DongariManagerState extends State<DongariManager> {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           onTap: () {},
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
         ListTile(
@@ -62,7 +63,7 @@ class _DongariManagerState extends State<DongariManager> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => DongariSurvey()));
           },
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
         ListTile(
@@ -70,8 +71,12 @@ class _DongariManagerState extends State<DongariManager> {
             '신청 폼 결과',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          onTap: () {},
-          trailing: Icon(Icons.arrow_forward),
+          onTap: () {Navigator.push(
+              context,
+              MaterialPageRoute(builder:
+              (context) => DongariSurveyResult()),
+          );},
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
         Divider(),
       ],

@@ -10,21 +10,10 @@ class DongariBoardPage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          child: TextButton(
-            onPressed: () {  }, child: Row(
-            children: [
-              Text('  전체게시판',style: TextStyle(color: Colors.black),),
-              Icon(Icons.arrow_drop_down,color: Colors.black,),
-            ],
-          ),
-          ),
-        ),
-
-        Container(
+          color: Colors.white,
           child: Column(
             children: [
               Container(
-                color: Colors.grey[200],
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -34,7 +23,6 @@ class DongariBoardPage extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.grey[200],
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -44,7 +32,6 @@ class DongariBoardPage extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.grey[200],
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
