@@ -64,7 +64,8 @@ class _DongariSurveyState extends State<DongariSurvey> {
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           borderSide: BorderSide(
-                              width: 1, color: Color.fromRGBO(240, 240, 240, 1)),
+                              width: 1,
+                              color: Color.fromRGBO(240, 240, 240, 1)),
                         ),
                         filled: true,
                         fillColor: Color.fromRGBO(240, 240, 240, 1),
@@ -77,7 +78,20 @@ class _DongariSurveyState extends State<DongariSurvey> {
                 child: Column(
                   children: [
                     Spacer(),
-                    AddButtons(),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          left: 32, right: 32, bottom: 10),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text("개인정보 수집 및 동의서 작성하기"),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(8.0),
+                          minimumSize: const Size(630, 45),
+                          backgroundColor:
+                              const Color.fromRGBO(255, 121, 34, 1),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 20),
                   ],
                 ),

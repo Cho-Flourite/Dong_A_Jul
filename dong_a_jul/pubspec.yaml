@@ -43,6 +43,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   carousel_slider: ^4.2.1
   floating_action_bubble: ^1.1.4
+  percent_indicator: ^4.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

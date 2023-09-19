@@ -69,6 +69,7 @@ class _DongariApplyState extends State<DongariApply> {
             Spacer(),
             NextButton(
                 buttonText: '시작하기',
+                isButtonEnabled: true,
                 onPressed: () {
                   Navigator.push(
                       context,

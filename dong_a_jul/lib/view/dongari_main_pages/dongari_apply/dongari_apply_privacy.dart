@@ -37,7 +37,7 @@ class PersonalInformationAgreement extends StatelessWidget {
                     Text(
                       '개인정보 수집 및 동의서',
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.start,
                     ),
                   ],
@@ -56,8 +56,9 @@ class PersonalInformationAgreement extends StatelessWidget {
                 ),
               ),
             ),
+            Expanded(flex: 2, child: Container()),
             Expanded(
-              flex: 2,
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Row(
@@ -77,6 +78,7 @@ class PersonalInformationAgreement extends StatelessWidget {
               flex: 1,
               child: NextButton(
                 buttonText: '네, 동의합니다',
+                isButtonEnabled: true,
                 onPressed: () {
                   Navigator.push(
                     context,
