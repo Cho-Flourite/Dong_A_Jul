@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../dongari_main_pages/dongari_main.dart';
 
-class ButtonRecruiting extends StatelessWidget {
-  const ButtonRecruiting({super.key});
+class ButtonRecruitingDetail extends StatelessWidget {
+  const ButtonRecruitingDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ButtonRecruiting extends StatelessWidget {
           );
         },
         child: Container(
-          width: 130,
+          width: 170,
           child: Column(
             children: [
               Material(
@@ -28,15 +28,15 @@ class ButtonRecruiting extends StatelessWidget {
                       Positioned(
                         child: Image.network(
                           'https://www.kindacode.com/wp-content/uploads/2022/07/bottle.jpeg',
-                          width: 130,
-                          height: 130,
+                          width: 170,
+                          height: 170,
                           fit: BoxFit.cover,
                         ),
                       ),
                       Positioned(
                           child: Container(
-                            width: 130,
-                            height: 130,
+                            width: 170,
+                            height: 170,
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [Colors.white.withOpacity(0.1),Colors.white.withOpacity(0.7)],
@@ -46,7 +46,7 @@ class ButtonRecruiting extends StatelessWidget {
                             ),
                           )),
                       Positioned(
-                          top: 100,
+                          top: 140,
                           left: 10,
                           child: Text(
                             '아롬',
@@ -61,7 +61,7 @@ class ButtonRecruiting extends StatelessWidget {
               ),
               SizedBox(height: 10,),
               Text(
-                '세종극회 "만남 45기" 모집합니다~~~~~',
+                '세종극회 "만남 45기" 모집합니다 ~~~~~ 많은 관심 부탁드려요.',
                 style: TextStyle(color: Colors.black, fontSize: 12),
               )
             ],

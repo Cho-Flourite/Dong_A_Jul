@@ -29,22 +29,18 @@ class ButtonMy extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(child: Opacity(
-                  opacity: 0.6,
-                  child: Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.white10,
-                            Colors.white,
-                          ],
-                        )),
-                  ),
-                )),
+                Positioned(
+                    child: Container(
+                      width: 130,
+                      height: 130,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [Colors.white.withOpacity(0.1),Colors.white.withOpacity(0.7)],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter
+                          )
+                      ),
+                    )),
                 Positioned(
                     top: 100,
                     left: 10,

@@ -3,6 +3,8 @@ import 'package:dong_a_jul/view/main_pages/today/button_my.dart';
 import 'package:dong_a_jul/view/main_pages/today/button_recommend.dart';
 import 'package:dong_a_jul/view/dongari_main_pages/dongari_main.dart';
 import 'package:dong_a_jul/view/main_pages/today/button_recruiting.dart';
+import 'package:dong_a_jul/view/main_pages/today/current_detail.dart';
+import 'package:dong_a_jul/view/main_pages/today/recruiting_detail.dart';
 import 'package:flutter/material.dart';
 
 class TodaysClub extends StatelessWidget {
@@ -11,6 +13,7 @@ class TodaysClub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: ClampingScrollPhysics(),
       children: [
         ListTile(
           title: TextButton(
@@ -86,7 +89,13 @@ class TodaysClub extends StatelessWidget {
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder:
+                            (context) => RecruitingDetail()),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -121,7 +130,13 @@ class TodaysClub extends StatelessWidget {
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder:
+                          (context) => CurrentDetail()),
+                      );
+                    },
                   ),
                 ),
                 Container(
