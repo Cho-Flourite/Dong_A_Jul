@@ -85,15 +85,15 @@ class TodaysClub extends StatelessWidget {
                     title: Text(
                       ' 모집중인 동아리',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.arrow_forward_ios),
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(builder:
-                            (context) => RecruitingDetail()),
+                          context,
+                          MaterialPageRoute(builder:
+                              (context) => RecruitingDetail()),
                         );
                       },
                     ),
@@ -132,9 +132,9 @@ class TodaysClub extends StatelessWidget {
                     icon: Icon(Icons.arrow_forward_ios),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:
-                          (context) => CurrentDetail()),
+                        context,
+                        MaterialPageRoute(builder:
+                            (context) => CurrentDetail()),
                       );
                     },
                   ),
