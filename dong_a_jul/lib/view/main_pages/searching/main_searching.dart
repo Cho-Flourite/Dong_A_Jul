@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:dong_a_jul/model/club.dart';
 import 'package:dong_a_jul/view/main_pages/today/button_my.dart';
 import 'package:dong_a_jul/view/main_pages/searching/button_recruit.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,18 @@ class _SearchingState extends State<Searching> {
   bool isShow = false;
   bool isCulture = false;
   late List<bool> isSelected;
+
+  var isLoading = true;
+
+  Future fetch() async{
+    setState(() {
+      isLoading = true;
+    });
+
+    //var response = await http.get(Uri.parse(uri));
+    //final jsonResult = jsonDecode(response.body);
+    //final jsonStores = jsonResult['store'];
+  }
 
   @override
   void initState() {
@@ -89,7 +103,6 @@ class _SearchingState extends State<Searching> {
       ];
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return ListView(

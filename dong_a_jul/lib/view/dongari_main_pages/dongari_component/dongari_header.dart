@@ -60,7 +60,7 @@ class _DongariHeaderState extends State<DongariHeader> {
                       SizedBox(
                         width: 5,
                       ),
-                      ClipRRect(
+                    /*  ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
@@ -70,7 +70,7 @@ class _DongariHeaderState extends State<DongariHeader> {
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ],

@@ -9,7 +9,7 @@ class DongariRecruitmentPage extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 5,),
-        ListTile(
+       /* ListTile(
           tileColor: Colors.white,
           title: Row(
             children: [
@@ -38,7 +38,7 @@ class DongariRecruitmentPage extends StatelessWidget {
             ],
           ),
           trailing: Text('7월 2일 ~ 7월 20일'),
-        ),
+        ),*/
         SizedBox(height: 5,),
         Container(
           child: Image.network(

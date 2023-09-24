@@ -42,14 +42,13 @@ dependencies:
   image_picker: ^1.0.2
   dotted_border: ^2.0.0+3
   carousel_slider: ^4.2.1
-<<<<<<< HEAD
   floating_action_bubble: ^1.1.4
   percent_indicator: ^4.2.3
-=======
   vertical_barchart: ^2.0.0+2
   fl_chart: ^0.63.0
   app_color: ^0.0.7
->>>>>>> seok
+  http: ^1.1.0
+  get: ^4.3.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

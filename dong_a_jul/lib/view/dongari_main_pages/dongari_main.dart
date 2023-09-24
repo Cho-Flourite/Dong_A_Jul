@@ -79,7 +79,7 @@ class _DongariMainState extends State<DongariMain> {
                           padding: EdgeInsets.all(3),
                           tabs: [
                             Text(
-                              '모집글',
+                              '소개글',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.black,
@@ -119,15 +119,15 @@ class _DongariMainState extends State<DongariMain> {
                 body: TabBarView(
                   children: [
                     DongariTabs(DongariRecruitmentPage()),
-                    DongariTabs(DongariAnnouncement()),
+                  /*  DongariTabs(DongariAnnouncement()),
                     DongariTabs(DongariBoardPage()),
-                    DongariTabs(DongariManager()),
+                    DongariTabs(DongariManager()),*/
                   ],
                 )),
           ),
         ),
       ),
-      DongariApplyButton(),
+      //DongariApplyButton(),
     ]);
   }
 }

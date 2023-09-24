@@ -12,7 +12,8 @@ class TodaysClub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return ButtonCurrent();
+/*    return ListView(
       physics: ClampingScrollPhysics(),
       children: [
         ListTile(
@@ -56,7 +57,7 @@ class TodaysClub extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                ListTile(
+                *//*ListTile(
                   title: Text(
                     ' 내 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -78,8 +79,8 @@ class TodaysClub extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 20,
-                ),
-                Container(
+                ),*//*
+               *//* Container(
                   color: Colors.grey[200],
                   child: ListTile(
                     title: Text(
@@ -119,13 +120,11 @@ class TodaysClub extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
+                ),*//*
                 ListTile(
                   title: Text(
-                    ' 최근 활동 동아리',
+                    //todo 최근 활동 동아리
+                    ' 오늘의 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   trailing: IconButton(
@@ -143,31 +142,7 @@ class TodaysClub extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ButtonCurrent(),
-                            ButtonCurrent(),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ButtonCurrent(),
-                            ButtonCurrent(),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ButtonCurrent(),
-                            ButtonCurrent(),
-                          ],
-                        ),
+                        child: ButtonCurrent(),
                       ),
                     ],
                   ),
@@ -177,6 +152,6 @@ class TodaysClub extends StatelessWidget {
           ),
         ),
       ],
-    );
+    );*/
   }
 }
