@@ -28,7 +28,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  //final List<Club> clubs = [];
 
   Future fetch() async {
     final url = Uri.parse("http://3.37.39.109:8080/api/v1/allclub");
@@ -37,7 +36,8 @@ class _MyAppState extends State<MyApp> {
 
     final Map<String, dynamic> data =
         jsonDecode(utf8.decode(response.bodyBytes)); // json data
-    final List<dynamic> clubList = data['list'];
+
+    List<dynamic> clubList = data['list'];
 
     if (response.statusCode == 200) {
       setState(() {
@@ -157,20 +157,6 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ),
-        /* MyBottomSheet(),
-        context.watch<Scroller>().isScrolled
-            ? Container()
-            : Positioned(
-                top: MediaQuery.of(context).size.height * 0.95,
-                left: MediaQuery.of(context).size.width * 0.38,
-                child: Text(
-                  '내 동아리로',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange[800]),
-                ),
-              ),*/
       ]),
     );
   }
