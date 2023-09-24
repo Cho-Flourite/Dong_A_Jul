@@ -13,7 +13,21 @@ class ButtonCurrent extends StatelessWidget {
     // clubs 리스트 가져옴
     RxList<Club> clubs = Get.find<DataController>().clubs;
 
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 9 / 10,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+      ),
+      children:
+        List.generate(
+            clubs.length, (index) => CardButton(context, clubs[index]))
+      ,
+    );
     return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: clubs.length,
       itemBuilder: (context, index) {
         return CardButton(context, clubs[index]);
@@ -22,7 +36,7 @@ class ButtonCurrent extends StatelessWidget {
   }
 }
 
-Widget CardButton(BuildContext context, Club club){
+Widget CardButton(BuildContext context, Club club) {
   return TextButton(
       onPressed: () {
         Navigator.push(
@@ -43,7 +57,7 @@ Widget CardButton(BuildContext context, Club club){
                   child: Stack(children: [
                     Positioned(
                       child: Image.network(
-                        club.img.toString(),
+                        club.image.toString(),
                         width: 170,
                         height: 170,
                         fit: BoxFit.cover,
@@ -51,33 +65,34 @@ Widget CardButton(BuildContext context, Club club){
                     ),
                     Positioned(
                         child: Opacity(
-                          opacity: 0.6,
-                          child: Container(
-                            width: 170,
-                            height: 170,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Colors.white10,
-                                    Colors.white,
-                                  ],
-                                )),
-                          ),
+                      opacity: 0.6,
+                      child: Container(
+                        width: 170,
+                        height: 170,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.white10,
+                            Colors.white,
+                          ],
                         )),
+                      ),
+                    )),
                     Positioned(
                         child: Container(
-                          width: 170,
-                          height: 170,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [Colors.white.withOpacity(0.1),Colors.white.withOpacity(0.5)],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter
-                              )
-                          ),
-                        )),
+                      width: 170,
+                      height: 170,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                            Colors.white.withOpacity(0.1),
+                            Colors.white.withOpacity(0.5)
+                          ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter)),
+                    )),
                     Positioned(
                         top: 140,
                         left: 10,
@@ -92,16 +107,25 @@ Widget CardButton(BuildContext context, Club club){
                 ),
               ),
             ),
-            SizedBox(height: 10,),
-            Row(children: [
-              CircleAvatar(
-                radius: 10,
-                backgroundColor: Colors.white,
-                child: Image.network('http://www.clickhd.co.kr/xe/files/attach/images/227/112/546/%EC%96%B4%ED%94%BC%EC%B9%98.png'),
-              ),
-              SizedBox(width: 10,),
-              Text(club.name.toString(),style: TextStyle(color: Colors.black),),
-            ],),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.white,
+                  child: Image.network(club.image.toString()),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  club.name.toString(),
+                  style: TextStyle(color: Colors.black),
+                ),
+              ],
+            ),
           ],
         ),
       ));

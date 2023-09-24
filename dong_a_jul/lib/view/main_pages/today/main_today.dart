@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 
 class TodaysClub extends StatelessWidget {
   const TodaysClub({super.key});
-
   @override
   Widget build(BuildContext context) {
+/*
     return ButtonCurrent();
-/*    return ListView(
+*/
+    return ListView(
       physics: ClampingScrollPhysics(),
       children: [
         ListTile(
@@ -29,7 +30,7 @@ class TodaysClub extends StatelessWidget {
                   width: 20,
                 ),
                 Text(
-                  '7/23일에 정기모임 있습니다! 참석해주세요!',
+                  '세종대학교 동아리입니다 !',
                   style: TextStyle(color: Colors.black),
                 ),
               ],
@@ -41,117 +42,8 @@ class TodaysClub extends StatelessWidget {
           ),
           tileColor: Colors.orange[800],
         ),
-        Container(
-          color: Colors.orange[800],
-          child: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-              ),
-              color: Colors.white,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                *//*ListTile(
-                  title: Text(
-                    ' 내 동아리',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ButtonMy(),
-                        ButtonMy(),
-                        ButtonMy(),
-                        ButtonMy(),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),*//*
-               *//* Container(
-                  color: Colors.grey[200],
-                  child: ListTile(
-                    title: Text(
-                      ' 모집중인 동아리',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder:
-                            (context) => RecruitingDetail()),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.grey[200],
-                  child: Column(
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),*//*
-                ListTile(
-                  title: Text(
-                    //todo 최근 활동 동아리
-                    ' 오늘의 동아리',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:
-                          (context) => CurrentDetail()),
-                      );
-                    },
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        child: ButtonCurrent(),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ButtonCurrent(),
       ],
-    );*/
+    );
   }
 }

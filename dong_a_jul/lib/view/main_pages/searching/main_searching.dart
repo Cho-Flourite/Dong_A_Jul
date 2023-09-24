@@ -14,6 +14,8 @@ class Searching extends StatefulWidget {
 }
 
 class _SearchingState extends State<Searching> {
+  // 검색어
+  String searchText = '';
   String result = '';
   bool isAcademic = false;
   bool isAthletic = false;
@@ -22,6 +24,7 @@ class _SearchingState extends State<Searching> {
   bool isShow = false;
   bool isCulture = false;
   late List<bool> isSelected;
+  int selectedCategory = -1;
 
   var isLoading = true;
 
@@ -29,10 +32,6 @@ class _SearchingState extends State<Searching> {
     setState(() {
       isLoading = true;
     });
-
-    //var response = await http.get(Uri.parse(uri));
-    //final jsonResult = jsonDecode(response.body);
-    //final jsonStores = jsonResult['store'];
   }
 
   @override
@@ -93,6 +92,7 @@ class _SearchingState extends State<Searching> {
       isCulture = true;
     }
     setState(() {
+      selectedCategory = value;
       isSelected = [
         isAcademic,
         isAthletic,
@@ -119,6 +119,9 @@ class _SearchingState extends State<Searching> {
             constraints: const BoxConstraints(
               maxHeight: 40,
             ),
+            onChanged: (value) {setState(() {
+              searchText = value;
+            });},
           ),
           tileColor: Colors.orange[800],
         ),
@@ -374,13 +377,9 @@ class _SearchingState extends State<Searching> {
         ),
         Container(
           color: Colors.white,
-          child: const Column(
+          child:  Column(
             children: [
-              ButtonRecruit(),
-              ButtonRecruit(),
-              ButtonRecruit(),
-              ButtonRecruit(),
-              ButtonRecruit(),
+              ButtonRecruit(selectedCategory: selectedCategory,search: searchText),
             ],
           ),
         ),
