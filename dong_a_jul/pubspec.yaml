@@ -47,8 +47,12 @@ dependencies:
   vertical_barchart: ^2.0.0+2
   fl_chart: ^0.63.0
   app_color: ^0.0.7
+<<<<<<< HEAD
   http: ^1.1.0
   get: ^4.3.8
+=======
+
+>>>>>>> 4c864ec1d0df0c34225477eaa49d5002655b55e6
 dev_dependencies:
   flutter_test:
     sdk: flutter
