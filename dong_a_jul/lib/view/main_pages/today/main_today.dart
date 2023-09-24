@@ -6,14 +6,20 @@ import 'package:dong_a_jul/view/main_pages/today/button_recruiting.dart';
 import 'package:dong_a_jul/view/main_pages/today/current_detail.dart';
 import 'package:dong_a_jul/view/main_pages/today/recruiting_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
+import '../../../main.dart';
+import '../../../model/club.dart';
 
 class TodaysClub extends StatelessWidget {
   const TodaysClub({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ButtonCurrent();
-/*    return ListView(
+    RxList<Club> clubs = Get.find<DataController>().clubs;
+    return ListView(
       physics: ClampingScrollPhysics(),
       children: [
         ListTile(
@@ -29,7 +35,7 @@ class TodaysClub extends StatelessWidget {
                   width: 20,
                 ),
                 Text(
-                  '7/23일에 정기모임 있습니다! 참석해주세요!',
+                  '동아줄에 오신 것을 환영합니다!',
                   style: TextStyle(color: Colors.black),
                 ),
               ],
@@ -54,104 +60,26 @@ class TodaysClub extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 20,
-                ),
-                *//*ListTile(
-                  title: Text(
-                    ' 내 동아리',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ButtonMy(),
-                        ButtonMy(),
-                        ButtonMy(),
-                        ButtonMy(),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),*//*
-               *//* Container(
-                  color: Colors.grey[200],
-                  child: ListTile(
-                    title: Text(
-                      ' 모집중인 동아리',
-                      style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:
-                              (context) => RecruitingDetail()),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.grey[200],
-                  child: Column(
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                            ButtonRecruiting(),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),*//*
+
                 ListTile(
                   title: Text(
                     //todo 최근 활동 동아리
                     ' 오늘의 동아리',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder:
-                            (context) => CurrentDetail()),
-                      );
-                    },
-                  ),
                 ),
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        child: ButtonCurrent(),
-                      ),
-                    ],
-                  ),
-                ),
+                GridView.count(
+                  crossAxisCount: 2,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    childAspectRatio: 6/7,
+                    children: List.generate(clubs.length,
+                        (index) => CardButton(context, clubs[index])))
               ],
             ),
           ),
         ),
       ],
-    );*/
+    );
   }
 }

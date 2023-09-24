@@ -6,16 +6,16 @@ class Clublist{
 
 class Club {
   String? name;
-  String? img;
+  String? image;
   String? tag;
   String? oneline;
   String? category;
 
-  Club({this.name, this.img, this.tag, this.oneline, this.category});
+  Club({this.name, this.image, this.tag, this.oneline, this.category});
 
   Club.fromJson(Map<String, dynamic> json) { // json -> clubs class
     name = json['name'];
-    img = json['img'];
+    image = json['image'];
     tag = json['tag'];
     oneline = json['oneline'];
     category = json['category'];
@@ -24,7 +24,7 @@ class Club {
   Map<String, dynamic> toJson() { // clubs class -> json
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
-    data['img'] = this.img;
+    data['img'] = this.image;
     data['tag'] = this.tag;
     data['oneline'] = this.oneline;
     data['category'] = this.category;

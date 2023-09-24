@@ -12,9 +12,16 @@ import 'package:dong_a_jul/view/main_pages/searching/main_searching.dart';
 import 'package:dong_a_jul/view/main_pages/today/main_today.dart';
 import 'package:dong_a_jul/view/profile_pages/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
+import '../../main.dart';
+import '../../model/club.dart';
 
 class DongariMain extends StatefulWidget {
   const DongariMain({super.key});
+
 
   @override
   State<DongariMain> createState() => _DongariMainState();
@@ -28,7 +35,6 @@ class _DongariMainState extends State<DongariMain> {
         child: DefaultTabController(
           length: 4,
           child: Scaffold(
-
             appBar: AppBar(
               backgroundColor: Colors.white,
               elevation: 0,
@@ -47,8 +53,7 @@ class _DongariMainState extends State<DongariMain> {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.more_vert),
                   color: Colors.black,
                 ),
@@ -119,7 +124,7 @@ class _DongariMainState extends State<DongariMain> {
                 body: TabBarView(
                   children: [
                     DongariTabs(DongariRecruitmentPage()),
-                  /*  DongariTabs(DongariAnnouncement()),
+                    /*  DongariTabs(DongariAnnouncement()),
                     DongariTabs(DongariBoardPage()),
                     DongariTabs(DongariManager()),*/
                   ],
