@@ -15,11 +15,15 @@ import '../../../model/club.dart';
 
 class TodaysClub extends StatelessWidget {
   const TodaysClub({super.key});
-
   @override
   Widget build(BuildContext context) {
 
+    RxList<Club> clubs = Get.find<DataController>().clubs;
     return ListView(
+
+
+
+
       physics: ClampingScrollPhysics(),
       children: [
         ListTile(

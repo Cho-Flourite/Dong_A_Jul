@@ -35,7 +35,7 @@ class _DongariMainState extends State<DongariMain> {
     return Stack(children: [
     Positioned(
     child: DefaultTabController(
-    length: 4,
+    length: 1,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -87,30 +87,30 @@ class _DongariMainState extends State<DongariMain> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        '공지사항',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '게시판',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '관리자',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      // Text(
+                      //   '공지사항',
+                      //   style: TextStyle(
+                      //     fontSize: 18,
+                      //     color: Colors.black,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
+                      // Text(
+                      //   '게시판',
+                      //   style: TextStyle(
+                      //     fontSize: 18,
+                      //     color: Colors.black,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
+                      // Text(
+                      //   '관리자',
+                      //   style: TextStyle(
+                      //     fontSize: 18,
+                      //     color: Colors.black,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
