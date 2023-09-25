@@ -114,6 +114,7 @@ class _MainPageState extends State<MainPage> {
             child: Scaffold(
               appBar: AppBar(
                 elevation: 0.0,
+                centerTitle: false,
                 leading: Container(
                   padding: EdgeInsets.all(10),
                   child: Image.asset(
