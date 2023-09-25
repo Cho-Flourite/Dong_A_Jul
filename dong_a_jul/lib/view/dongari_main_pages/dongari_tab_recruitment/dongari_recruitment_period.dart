@@ -153,10 +153,7 @@ class _RecruitmentPeriodState extends State<RecruitmentPeriod> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DongariMain()));
+
               print('수정');
             },
             child: Container(

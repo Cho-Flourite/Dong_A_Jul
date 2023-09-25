@@ -9,10 +9,7 @@ class ButtonRecruitingDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DongariMain()),
-          );
+
         },
         child: Container(
           width: 170,

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DongariHeader extends StatefulWidget {
-  const DongariHeader({super.key});
+import '../../../model/club.dart';
 
+class DongariHeader extends StatefulWidget {
+  const DongariHeader({required this.club, super.key});
+
+  final Club club;
   @override
   State<DongariHeader> createState() => _DongariHeaderState();
 }
@@ -21,10 +24,14 @@ class _DongariHeaderState extends State<DongariHeader> {
         children: [
           Expanded(
             flex: 1,
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg'),
-              radius: 40,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                  widget.club.image.toString(),),
+                radius: 30,
+              ),
             ),
           ),
           Expanded(
@@ -37,7 +44,7 @@ class _DongariHeaderState extends State<DongariHeader> {
                   Padding(
                     padding: const EdgeInsets.only(top: 13,bottom: 5),
                     child: Text(
-                      '아롬',
+                      widget.club.name.toString(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -52,7 +59,7 @@ class _DongariHeaderState extends State<DongariHeader> {
                           padding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
                           color: Colors.lightGreenAccent,
                           child: Text(
-                            '# 프로그래밍',
+                              widget.club.tag.toString(),
                             style: TextStyle(fontSize: 13),
                           ),
                         ),

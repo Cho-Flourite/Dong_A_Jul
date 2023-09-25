@@ -18,7 +18,7 @@ class TodaysClub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxList<Club> clubs = Get.find<DataController>().clubs;
+
     return ListView(
       physics: ClampingScrollPhysics(),
       children: [
@@ -68,13 +68,7 @@ class TodaysClub extends StatelessWidget {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                GridView.count(
-                  crossAxisCount: 2,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    childAspectRatio: 6/7,
-                    children: List.generate(clubs.length,
-                        (index) => CardButton(context, clubs[index])))
+                ButtonCurrent(),
               ],
             ),
           ),

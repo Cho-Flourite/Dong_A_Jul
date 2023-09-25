@@ -9,10 +9,7 @@ class ButtonBottomMy extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DongariMain()),
-        );
+
       },
       child: Column(
         children: [

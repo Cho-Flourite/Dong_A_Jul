@@ -9,10 +9,7 @@ class ButtonBottomInterest extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DongariMain()),
-        );
+
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 20),

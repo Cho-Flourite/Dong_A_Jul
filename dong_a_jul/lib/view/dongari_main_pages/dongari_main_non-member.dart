@@ -73,9 +73,7 @@ class _DongariMainNonMemberState extends State<DongariMainNonMember> {
                         expandedHeight: 120.0,
                         collapsedHeight: 6,
                         toolbarHeight: 0,
-                        flexibleSpace: FlexibleSpaceBar(
-                          background: DongariHeader(),
-                        ),
+
                         pinned: true,
                         backgroundColor: Colors.white,
                         forceElevated: innerBoxIsScrolled,
@@ -117,7 +115,7 @@ class _DongariMainNonMemberState extends State<DongariMainNonMember> {
                 },
                 body: TabBarView(
                   children: [
-                    DongariTabs(DongariRecruitmentPage()),
+
                     DongariTabs(DongariAnnouncement()),
                     DongariTabs(DongariBoardPage()),
                   ],

@@ -13,15 +13,13 @@ class ButtonCurrent extends StatelessWidget {
     // clubs 리스트 가져옴
     RxList<Club> clubs = Get.find<DataController>().clubs;
 
-    return GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 9 / 10,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-        ),
-        children: List.generate(
-            clubs.length, (index) => CardButton(context, clubs[index])));
+    return GridView.count(
+        crossAxisCount: 2,
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        childAspectRatio: 6/7,
+        children: List.generate(clubs.length,
+                (index) => CardButton(context, clubs[index])));
   }
 }
 
@@ -30,7 +28,7 @@ Widget CardButton(BuildContext context, Club club) {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DongariMain()),
+          MaterialPageRoute(builder: (context) => DongariMain(club: club,)),
         );
       },
       child: Container(
@@ -76,8 +74,8 @@ Widget CardButton(BuildContext context, Club club) {
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                               colors: [
-                            Colors.white.withOpacity(0.1),
-                            Colors.white.withOpacity(0.5)
+                            Colors.white.withOpacity(0.05),
+                            Colors.white.withOpacity(0.1)
                           ],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter)),
