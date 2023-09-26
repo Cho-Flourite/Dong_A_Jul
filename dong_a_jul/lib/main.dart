@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   Future fetch() async {
-    final url = Uri.parse("http://3.37.39.109:8080/api/v1/allclub");
+    final url = Uri.parse("http://52.79.86.46:8080/api/v1/allclub");
 
     final response = await http.get(url);
 
